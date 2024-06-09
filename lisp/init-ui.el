@@ -33,7 +33,7 @@
 (setq fancy-splash-image danis-logo)
 
 ;; Title
-(setq frame-title-format '("Centaur Emacs - %b")
+(setq frame-title-format '("DNR Emacs - %b")
       icon-title-format frame-title-format)
 
 (when (and sys/mac-ns-p sys/mac-x-p)
