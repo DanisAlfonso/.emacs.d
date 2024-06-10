@@ -1,4 +1,4 @@
-;; init-ui.el --- Better lookings and appearances.	-*- lexical-binding: t -*-
+;; init-ui.el --- Better lookings and appearances. -*- lexical-binding: t -*-
 
 ;; Visual (UI) configurations for better lookings and appearances.
 ;;
@@ -231,7 +231,7 @@
        ("z g" (set-from-minibuffer 'doom-modeline-github-interval)
         "set github interval" :exit t)
        ("z n" (set-from-minibuffer 'doom-modeline-gnus-timer)
-        "set gnus interval" :exit t)))))
+        "set gnus interval" :exit t))))))
 
   (use-package hide-mode-line
     :hook (((treemacs-mode
@@ -353,7 +353,7 @@
                    2)
                 (/ (+ (plist-get info :parent-frame-height)
                       (* 2 (plist-get info :font-height)))
-                   2)))))))
+                   2))))))
 
 (with-no-warnings
   (when sys/macp
@@ -407,6 +407,29 @@
         (set-char-table-range composition-ligature-table (car char-regexp)
                               `([,(cdr char-regexp) 0 font-shape-gstring]))))
     (set-char-table-parent composition-ligature-table composition-function-table)))
+
+;; Set transparency
+(defun set-transparency (active inactive)
+  "Sets the transparency of the frame window.
+ACTIVE is the transparency value when the frame is active (focused).
+INACTIVE is the transparency value when the frame is inactive (unfocused)."
+  (set-frame-parameter (selected-frame) 'alpha (list active inactive))
+  (add-to-list 'default-frame-alist (cons 'alpha (list active inactive))))
+
+(defun toggle-transparency ()
+  "Toggle between transparent and opaque frame."
+  (interactive)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (if (or (not alpha) (equal alpha 100))
+        (set-transparency 92 70) ; Adjust these values to your liking
+      (set-transparency 100 100))))
+
+;; Bind the toggle transparency function to a key, e.g., F12
+(global-set-key (kbd "<f12>") 'toggle-transparency)
+
+;; Set initial transparency when Emacs starts
+(when (display-graphic-p)
+  (set-transparency 92 70)) ; Adjust these values to your liking
 
 (provide 'init-ui)
 
