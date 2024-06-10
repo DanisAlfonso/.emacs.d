@@ -70,5 +70,8 @@ Otherwise the startup will be very slow."
 (require 'init-base)
 (require 'init-hydra)
 (require 'init-ui)
+
+(require 'init-dired)
+(require 'init-eshell)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
