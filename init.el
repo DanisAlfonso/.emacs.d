@@ -70,6 +70,7 @@ Otherwise the startup will be very slow."
 (require 'init-base)
 (require 'init-hydra)
 (require 'init-ui)
+(require 'init-edit)
 
 (require 'init-dired)
 (require 'init-eshell)
