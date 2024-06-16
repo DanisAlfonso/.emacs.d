@@ -71,8 +71,16 @@ Otherwise the startup will be very slow."
 (require 'init-hydra)
 (require 'init-ui)
 (require 'init-edit)
+(require 'init-completion)
+
+(require 'init-markdown)
+(require 'init-org)
+(require 'init-utils)
 
 (require 'init-dired)
 (require 'init-eshell)
+
+(require 'init-c)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here

@@ -421,7 +421,7 @@ INACTIVE is the transparency value when the frame is inactive (unfocused)."
   (interactive)
   (let ((alpha (frame-parameter nil 'alpha)))
     (if (or (not alpha) (equal alpha 100))
-        (set-transparency 92 70) ; Adjust these values to your liking
+        (set-transparency 97 90) ; Adjust these values to your liking
       (set-transparency 100 100))))
 
 ;; Bind the toggle transparency function to a key, e.g., F12
@@ -429,7 +429,7 @@ INACTIVE is the transparency value when the frame is inactive (unfocused)."
 
 ;; Set initial transparency when Emacs starts
 (when (display-graphic-p)
-  (set-transparency 92 70)) ; Adjust these values to your liking
+  (set-transparency 97 90)) ; Adjust these values to your liking
 
 (provide 'init-ui)
 
